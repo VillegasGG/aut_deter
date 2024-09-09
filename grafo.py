@@ -1,37 +1,38 @@
 import networkx as nx
 from matplotlib import pyplot as plt
+import itertools as it
 
 def crearGrafo(estados, alfabeto, matriz):
-    G = nx.DiGraph()
+    G = nx.MultiDiGraph(directed=True)
     
     for i, linea in enumerate(matriz):
         lista_linea = linea.split(' ')
         for j, elemento in enumerate(lista_linea):
-            G.add_edge(estados[i], elemento, weight = alfabeto[j])
+            G.add_edge(estados[i], elemento, label = alfabeto[j])
 
     return G
 
 def graficar(G):
-    # Generar posiciones para los nodos
-    # Generar posiciones para los nodos
-    pos = nx.spring_layout(G)  # Puedes usar diferentes layouts: spring_layout, circular_layout, etc.
+    connectionstyle = [f"arc3,rad={r}" for r in it.accumulate([0.15] * 4)]
+    pos = nx.shell_layout(G)
+    nx.draw_networkx_nodes(G, pos, node_size=6)
+    nx.draw_networkx_labels(G, pos, font_size=5)
+    nx.draw_networkx_edges(
+        G, pos, edge_color="black", connectionstyle=connectionstyle
+    )
+    labels = {
+        tuple(edge): f"{attrs['label']}" for *edge, attrs in G.edges(keys=True, data=True)
+    }
+    print(labels)
+    nx.draw_networkx_edge_labels(
+        G,
+        pos,
+        labels,
+        connectionstyle=connectionstyle,
+        label_pos=0.7,
+        font_color="black",
+        font_size=8,
+        bbox={"alpha": 0},
+    )
 
-    # Dibujar el grafo
-    plt.figure(figsize=(10, 8))
-
-    # Dibujar nodos
-    nx.draw_networkx_nodes(G, pos, node_color='lightblue', node_size=700)
-
-    # Dibujar etiquetas de nodos
-    nx.draw_networkx_labels(G, pos, font_weight='bold')
-
-    # Dibujar aristas
-    nx.draw_networkx_edges(G, pos, width=2)
-
-    # Obtener los pesos y dibujarlos como etiquetas en las aristas
-    edge_labels = nx.get_edge_attributes(G, 'weight')
-    nx.draw_networkx_edge_labels(G, pos, edge_labels=edge_labels, font_size=12, bbox=dict(facecolor='white', alpha=0.5))
-
-    # Mostrar el gráfico
-    plt.title("Grafo No Dirigido con Pesos")
     plt.show()

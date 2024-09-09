@@ -3,7 +3,7 @@ import grafo
 import helper
 
 def main():
-    G = nx.DiGraph
+    G = nx.MultiDiGraph(directed=True)
 
     G = helper.entrada()
 

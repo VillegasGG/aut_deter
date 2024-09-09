@@ -22,6 +22,4 @@ def entrada():
 
     G = grafo.crearGrafo(estados, alfabeto, matriz_transiciones)
 
-    grafo.graficar(G)
-
     return G
