@@ -15,15 +15,18 @@ def entrada():
 
     print(cadena)
     for i in range(len(estados)):
-        t = input(estados[i] + ': ')
-        matriz_transiciones.append(t)
+        while(True):
+            t = input(estados[i] + ': ')
+            
+            tr = t.split()
+            if(len(tr) == len(alfabeto)):
+                matriz_transiciones.append(tr)
+                break
+            else:
+                print(f"Error: Debe ingresar {len(alfabeto)} transiciones separadas por espacios. Nota: para vacio agregue \"-\" ")
     
     q0 = input("Ingrese el estado inicial: ")
-    num_aceptados = int(input("Ingrese el numero de estados aceptados: "))
-
-    for i in range(num_aceptados):
-        e = input("Estado aceptado: ")
-        estados_aceptados.append(e)
+    estados_aceptados = input("Ingrese los estados ACEPTADOS separados por un espacio: ").split(' ')
 
     G = grafo.crearGrafo(estados, alfabeto, matriz_transiciones, q0, estados_aceptados)
 
