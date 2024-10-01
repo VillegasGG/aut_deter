@@ -14,7 +14,8 @@ def crearGrafo(estados, alfabeto, matriz, q0, aceptados):
     for i, linea in enumerate(matriz):
         lista_linea = linea.split(' ')
         for j, elemento in enumerate(lista_linea):
-            G.add_edge(estados[i], elemento, label = alfabeto[j])
+            if(elemento!='-'):
+                G.add_edge(estados[i], elemento, label = alfabeto[j])
 
     return G 
 

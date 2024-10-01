@@ -7,7 +7,7 @@ def entrada():
     estados_aceptados = []
     estados = input("Ingrese los estados separados por un espacio: ").split(' ')
     alfabeto = input("Ingrese el alfabeto (separe cada elemento con un espacio): ").split(' ')
-    print("Ingrese fila a fila las transiciones: ")
+    print("Ingrese fila a fila las transiciones (para vacio agregue \"-\"): ")
 
     cadena = ''
     for el in alfabeto:
