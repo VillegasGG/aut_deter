@@ -2,8 +2,9 @@ import networkx as nx
 import grafo
 
 def entrada():
-    G = nx.DiGraph
+    G = nx.MultiDiGraph()
     matriz_transiciones = []
+    estados_aceptados = []
     estados = input("Ingrese los estados separados por un espacio: ").split(' ')
     alfabeto = input("Ingrese el alfabeto (separe cada elemento con un espacio): ").split(' ')
     print("Ingrese fila a fila las transiciones: ")
@@ -17,9 +18,13 @@ def entrada():
         t = input(estados[i] + ': ')
         matriz_transiciones.append(t)
     
-    # q0 = input("Ingrese el estado inicial: ")
-    # estados_aceptados = input("Ingrese los estados de aceptacion: ")
+    q0 = input("Ingrese el estado inicial: ")
+    num_aceptados = int(input("Ingrese el numero de estados aceptados: "))
 
-    G = grafo.crearGrafo(estados, alfabeto, matriz_transiciones)
+    for i in range(num_aceptados):
+        e = input("Estado aceptado: ")
+        estados_aceptados.append(e)
+
+    G = grafo.crearGrafo(estados, alfabeto, matriz_transiciones, q0, estados_aceptados)
 
     return G

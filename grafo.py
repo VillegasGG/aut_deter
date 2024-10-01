@@ -1,38 +1,36 @@
 import networkx as nx
 from matplotlib import pyplot as plt
-import itertools as it
+from networkx.drawing.nx_agraph import to_agraph
 
-def crearGrafo(estados, alfabeto, matriz):
+def crearGrafo(estados, alfabeto, matriz, q0, aceptados):
     G = nx.MultiDiGraph(directed=True)
     
+    for estado in estados:
+        if estado in aceptados:
+            G.add_node(estado, shape="doublecircle") 
+        else:
+            G.add_node(estado, shape="circle")  
+
     for i, linea in enumerate(matriz):
         lista_linea = linea.split(' ')
         for j, elemento in enumerate(lista_linea):
             G.add_edge(estados[i], elemento, label = alfabeto[j])
 
-    return G
+    return G 
 
 def graficar(G):
-    connectionstyle = [f"arc3,rad={r}" for r in it.accumulate([0.15] * 4)]
-    pos = nx.shell_layout(G)
-    nx.draw_networkx_nodes(G, pos, node_size=6)
-    nx.draw_networkx_labels(G, pos, font_size=5)
-    nx.draw_networkx_edges(
-        G, pos, edge_color="black", connectionstyle=connectionstyle
-    )
-    labels = {
-        tuple(edge): f"{attrs['label']}" for *edge, attrs in G.edges(keys=True, data=True)
-    }
-    print(labels)
-    nx.draw_networkx_edge_labels(
-        G,
-        pos,
-        labels,
-        connectionstyle=connectionstyle,
-        label_pos=0.7,
-        font_color="black",
-        font_size=8,
-        bbox={"alpha": 0},
-    )
+    A = to_agraph(G)
 
+    A.graph_attr['rankdir'] = 'LR'  
+    A.node_attr['shape'] = 'circle' 
+    A.edge_attr['fontsize'] = 10  
+
+    for u, v, d in G.edges(data=True):
+        A.get_edge(u, v).attr['label'] = d['label']
+
+    A.draw('grafo.png', format='png', prog='dot')
+
+    img = plt.imread('grafo.png')
+    plt.imshow(img)
+    plt.axis('off')
     plt.show()
