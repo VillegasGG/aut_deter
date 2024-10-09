@@ -16,7 +16,7 @@ def crearGrafo(estados, alfabeto, matriz, q0, aceptados):
             if(elemento!='-'):
                 G.add_edge(estados[i], elemento, label = alfabeto[j])
 
-    return G 
+    return G
 
 def graficar(G):
     A = to_agraph(G)

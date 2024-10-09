@@ -36,4 +36,4 @@ def entrada():
 
     G = grafo.crearGrafo(estados, alfabeto, matriz_transiciones, q0, estados_aceptados)
 
-    return G
+    return G, q0, estados_aceptados
