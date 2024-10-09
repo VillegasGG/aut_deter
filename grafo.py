@@ -7,9 +7,9 @@ def crearGrafo(estados, alfabeto, matriz, q0, aceptados):
     
     for estado in estados:
         if estado in aceptados:
-            G.add_node(estado, shape="doublecircle") 
+            G.add_node(estado, shape="doublecircle", accepting=True) 
         else:
-            G.add_node(estado, shape="circle")  
+            G.add_node(estado, shape="circle", accepting=False)  
 
     for i, linea in enumerate(matriz):
         for j, elemento in enumerate(linea):
