@@ -6,10 +6,10 @@ import algoritmo
 def main():
     G = nx.MultiDiGraph(directed=True)
 
-    G, q0, aceptados = helper.entrada()
+    G, q0, aceptados, cadena = helper.entrada()
 
     grafo.graficar(G)
 
-    algoritmo.automata(G, q0, aceptados)
+    algoritmo.automata(G, q0, aceptados, cadena)
 
 main()

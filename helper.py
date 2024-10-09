@@ -34,6 +34,8 @@ def entrada():
     q0 = input("Ingrese el estado inicial: ")
     estados_aceptados = input("Ingrese los estados ACEPTADOS separados por un espacio: ").split(' ')
 
+    cadena = input("Ingrese la cadena a validar (Separar con espacios cada transicion. Ej: 0 1 1 1): ").split(' ')
+
     G = grafo.crearGrafo(estados, alfabeto, matriz_transiciones, q0, estados_aceptados)
 
-    return G, q0, estados_aceptados
+    return G, q0, estados_aceptados, cadena
