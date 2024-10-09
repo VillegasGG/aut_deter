@@ -17,11 +17,17 @@ def entrada():
     for i in range(len(estados)):
         while(True):
             t = input(estados[i] + ': ')
-            
+            c = 0
             tr = t.split()
             if(len(tr) == len(alfabeto)):
-                matriz_transiciones.append(tr)
-                break
+                for el in tr:
+                    if el in estados or el == '-':
+                        c += 1
+                    if el not in estados and el != '-':
+                        print(f"Error: {el} no se encuentra en la lista de estados")
+                if(c == len(alfabeto)):
+                    matriz_transiciones.append(tr)
+                    break
             else:
                 print(f"Error: Debe ingresar {len(alfabeto)} transiciones separadas por espacios. Nota: para vacio agregue \"-\" ")
     
