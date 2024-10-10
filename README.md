@@ -19,5 +19,6 @@ String to evaluate: 0 1 1 0 1 1
 
 ### Output
 **Accepted string**
+
 Explanation: Since the initial state is q1, the string reaches the accepting state q3.
 
