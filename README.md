@@ -1,10 +1,20 @@
-# Automata Determinista 🤖
+# Deterministic finite automaton 🔍
 
-## Descripción
-Implementación de un **autómata determinista**. 
-El autómata se mueve entre estados de acuerdo con las etiquetas definidas en las transiciones.
-Su objetivo es evaluar si la cadena es aceptada o no.
+## Description
+Implementation of a **deterministic automaton**.
+The automaton moves between states according to the labels defined in the transitions.
+Its objective is to evaluate whether the string is accepted or not.
 
-## Algoritmo
-El algoritmo recorre la cadena de entrada carácter por carácter, y va recorriendo las respectivas etiquetas del grafo. 
-El autómata comienza en un estado inicial y, al finalizar la lectura de la cadena, verifica si se ha llegado a un estado de aceptación.
+## Algorithm
+The algorithm goes through the input string character by character, and goes through the respective labels of the graph.
+The automaton starts in an initial state and, upon finishing reading the string, verifies whether an acceptance state has been reached.
+
+## Example
+###Input
+String to evaluate: 0 1 1 0 1 1
+### Automaton Image
+![Automaton Diagram](example.png)
+###Output
+**Accepted string**
+Explanation: Since the initial state is q1, the string reaches the accepting state q3.
+
