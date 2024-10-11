@@ -17,9 +17,8 @@ Enter the states separated by a space: q1 q2 q3
 Enter the alphabet (separate each item with a space): 0 1
 
 Enter the transitions row by row ("-" for empty):
-
-        0       1
-        
+ 
+  0    1    
 q1: q1 q2
 
 
