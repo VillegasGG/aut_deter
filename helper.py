@@ -5,9 +5,9 @@ def entrada():
     G = nx.MultiDiGraph()
     matriz_transiciones = []
     estados_aceptados = []
-    estados = input("Ingrese los estados separados por un espacio: ").split(' ')
-    alfabeto = input("Ingrese el alfabeto (separe cada elemento con un espacio): ").split(' ')
-    print("Ingrese fila a fila las transiciones (para vacio agregue \"-\"): ")
+    estados = input("Enter the states separated by a space: ").split(' ')
+    alfabeto = input("Enter the alphabet (separate each item with a space): ").split(' ')
+    print("Enter the transitions row by row (\"-\" for empty): ")
 
     cadena = ''
     for el in alfabeto:
@@ -24,17 +24,17 @@ def entrada():
                     if el in estados or el == '-':
                         c += 1
                     if el not in estados and el != '-':
-                        print(f"Error: {el} no se encuentra en la lista de estados")
+                        print(f"Error: {el} is not found in the states list")
                 if(c == len(alfabeto)):
                     matriz_transiciones.append(tr)
                     break
             else:
-                print(f"Error: Debe ingresar {len(alfabeto)} transiciones separadas por espacios. Nota: para vacio agregue \"-\" ")
+                print(f"Error: You must enter {len(alfabeto)} transitions separated by spaces. (\"-\" for empty)")
     
-    q0 = input("Ingrese el estado inicial: ")
-    estados_aceptados = input("Ingrese los estados ACEPTADOS separados por un espacio: ").split(' ')
+    q0 = input("Enter the initial state: ")
+    estados_aceptados = input("Enter the ACCEPTING states separated by a space: ").split(' ')
 
-    cadena = input("Ingrese la cadena a validar (Separar con espacios cada transicion. Ej: 0 1 1 1): ").split(' ')
+    cadena = input("Enter the string to validate (Separate each transition with spaces. E.g.: 0 1 1 1): ").split(' ')
 
     G = grafo.crearGrafo(estados, alfabeto, matriz_transiciones, q0, estados_aceptados)
 

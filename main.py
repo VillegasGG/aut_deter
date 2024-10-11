@@ -10,6 +10,6 @@ def main():
 
     grafo.graficar(G)
 
-    algoritmo.automata(G, q0, aceptados, cadena)
+    algoritmo.automata(G, q0, cadena)
 
 main()
