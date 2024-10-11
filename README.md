@@ -13,14 +13,24 @@ The automaton starts in an initial state and, upon finishing reading the string,
 
 ### Input
 Enter the states separated by a space: q1 q2 q3
+
 Enter the alphabet (separate each item with a space): 0 1
+
 Enter the transitions row by row ("-" for empty):
+
         0       1
+        
 q1: q1 q2
+
+
 q2: q2 q3
+
 q3: q1 q3
+
 Enter the initial state: q1
+
 Enter the ACCEPTING states separated by a space:q3
+
 Enter the string to validate (Separate each transition with spaces. E.g.: 0 1 1 1): 0 1 1 0 1 1
 
 ### Automaton Image
