@@ -34,8 +34,16 @@ def entrada():
     q0 = input("Enter the initial state: ")
     estados_aceptados = input("Enter the ACCEPTING states separated by a space: ").split(' ')
 
-    cadena = input("Enter the string to validate (Separate each transition with spaces. E.g.: 0 1 1 1): ").split(' ')
-
     G = grafo.crearGrafo(estados, alfabeto, matriz_transiciones, q0, estados_aceptados)
 
-    return G, q0, estados_aceptados, cadena
+    return G, q0
+
+def leer_string():
+    cadena = input("Enter the string to validate (Separate each transition with spaces. E.g.: 0 1 1 1): ").split(' ')
+    return cadena
+
+def opciones():
+    print("\n=== Seleccione una opción ===")
+    print("1. Ingresar nuevo string a revisar: ")
+    print("2. Salir")
+    print("=====================")
