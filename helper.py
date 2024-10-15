@@ -35,7 +35,7 @@ def entrada():
     estados_aceptados = leer_aceptados(estados)
    
 
-    G = grafo.crearGrafo(estados, alfabeto, matriz_transiciones, q0, estados_aceptados)
+    G = grafo.crearGrafo(estados, alfabeto, matriz_transiciones, estados_aceptados)
 
     return G, q0, alfabeto
 

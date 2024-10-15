@@ -2,7 +2,7 @@ import networkx as nx
 from matplotlib import pyplot as plt
 from networkx.drawing.nx_agraph import to_agraph
 
-def crearGrafo(estados, alfabeto, matriz, q0, aceptados):
+def crearGrafo(estados, alfabeto, matriz, aceptados):
     G = nx.MultiDiGraph(directed=True)
     
     for estado in estados:
