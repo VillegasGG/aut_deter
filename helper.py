@@ -32,28 +32,41 @@ def entrada():
                 print(f"Error: You must enter {len(alfabeto)} transitions separated by spaces. (\"-\" for empty)")
     
     q0 = leer_q0(estados)
-    estados_aceptados = input("Enter the ACCEPTING states separated by a space: ").split(' ')
+    estados_aceptados = leer_aceptados(estados)
+   
 
     G = grafo.crearGrafo(estados, alfabeto, matriz_transiciones, q0, estados_aceptados)
 
     return G, q0, alfabeto
 
+def leer_aceptados(estados):
+    while(True):
+        aceptados = input("Enter the ACCEPTING states separated by a space: ").strip().split(' ')
+        b = True
+        for el in aceptados:
+            if el not in estados:
+                print(f"Error: '{el}' is not in the states {estados}. Try again.")
+                b = False
+                break
+        if b:
+            return aceptados
+
 def leer_q0(estados):
     while(True):
         q0 = input("Enter the initial state: ")
         if q0 not in estados:
-            print(f"Error: '{q0}' no está en la lista de estados {estados}. Inténtalo de nuevo.")
+            print(f"Error: '{q0}' is not in the states {estados}. Try again.")
         else:
             return q0
 
 
 def leer_string(alfabeto):
     while(True):
-        cadena = input("Enter the string to validate (Separate each transition with spaces. E.g.: 0 1 1 1): ").strip().split(' ')
+        cadena = input("Enter the string to validate (Separate each transition with a space. E.g.: 0 1 1 1): ").strip().split(' ')
         b = True
         for el in cadena:
             if el not in alfabeto:
-                print(f"Error: '{el}' no está en el alfabeto {alfabeto}. Inténtalo de nuevo.")
+                print(f"Error: '{el}' is not in the alphabet. {alfabeto}. Try again.")
                 b = False
                 break
         
@@ -61,7 +74,7 @@ def leer_string(alfabeto):
             return cadena
 
 def opciones():
-    print("\n=== Seleccione una opción ===")
-    print("1. Ingresar nuevo string a revisar: ")
-    print("2. Salir")
+    print("\n=== Select an option ===")
+    print("1. Enter new string: ")
+    print("2. Exit")
     print("=====================")

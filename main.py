@@ -15,7 +15,7 @@ def main():
     
     while True:
         helper.opciones()
-        opcion = input("Selecciona una opción: ")
+        opcion = input("Select an option : ")
 
         if opcion == "1":
             cadena = helper.leer_string(alfabeto)
@@ -23,7 +23,7 @@ def main():
         elif opcion == "2":
             break
         else:
-            print("Opción no válida. Intenta de nuevo.")
+            print("Invalid option. Please try again.")
 
 
 
