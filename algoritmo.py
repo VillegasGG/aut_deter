@@ -6,7 +6,11 @@ def automata(G, q0, cadena):
                 estado_actual = v        
 
     if(G.nodes[estado_actual]['accepting']):
+        print("=====================")
         print('Accepted string')
+        print("=====================")
     else:
+        print("=====================")
         print('Rejected string')
+        print("=====================")
     return

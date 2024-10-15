@@ -36,11 +36,20 @@ def entrada():
 
     G = grafo.crearGrafo(estados, alfabeto, matriz_transiciones, q0, estados_aceptados)
 
-    return G, q0
+    return G, q0, alfabeto
 
-def leer_string():
-    cadena = input("Enter the string to validate (Separate each transition with spaces. E.g.: 0 1 1 1): ").split(' ')
-    return cadena
+def leer_string(alfabeto):
+    while(True):
+        cadena = input("Enter the string to validate (Separate each transition with spaces. E.g.: 0 1 1 1): ").split(' ')
+        b = True
+        for el in cadena:
+            if el not in alfabeto:
+                print(f"Error: '{el}' no está en el alfabeto {alfabeto}. Inténtalo de nuevo.")
+                b = False
+                break
+        
+        if b:
+            return cadena
 
 def opciones():
     print("\n=== Seleccione una opción ===")
