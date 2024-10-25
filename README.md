@@ -44,7 +44,7 @@ Explanation: Since the initial state is q1, the string reaches the accepting sta
 
 # Autómata Finito Determinista🔍
 
-## Description
+## Descripción
 Implementación de un  **autómata determinista**.
 El autómata se mueve entre estados de acuerdo con las etiquetas definidas en las transiciones. 
 Su objetivo es evaluar si la cadena es aceptada o no.
