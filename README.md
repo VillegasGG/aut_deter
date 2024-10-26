@@ -42,7 +42,7 @@ Explanation: Since the initial state is q1, the string reaches the accepting sta
 
 ---
 
-# Autómata Finito Determinista🔍
+# Autómata finito determinista🔍
 
 ## Descripción
 Implementación de un  **autómata determinista**.
@@ -82,4 +82,4 @@ Enter the string to validate (Separate each transition with spaces. E.g.: 0 1 1 
 ### Salida
 **Accepted string**
 
-Explicación: Dado que el estado inicial es q1, la cadena alcanza el estado de aceptación q3
+Explicación: Dado que el estado inicial es q1, la cadena alcanza el estado de aceptación q3.
