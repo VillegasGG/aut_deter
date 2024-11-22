@@ -40,16 +40,11 @@ def entrada():
     return G, q0, alfabeto
 
 def leer_aceptados(estados):
-    while(True):
+    while True:
         aceptados = input("Enter the ACCEPTING states separated by a space: ").strip().split(' ')
-        b = True
-        for el in aceptados:
-            if el not in estados:
-                print(f"Error: '{el}' is not in the states {estados}. Try again.")
-                b = False
-                break
-        if b:
+        if all(el in estados for el in aceptados):
             return aceptados
+        print(f"Error: One or more elements are not in the states {estados}. Try again.")
 
 def leer_q0(estados):
     while(True):
@@ -61,17 +56,11 @@ def leer_q0(estados):
 
 
 def leer_string(alfabeto):
-    while(True):
+    while True:
         cadena = input("Enter the string to validate (Separate each transition with a space. E.g.: 0 1 1 1): ").strip().split(' ')
-        b = True
-        for el in cadena:
-            if el not in alfabeto:
-                print(f"Error: '{el}' is not in the alphabet. {alfabeto}. Try again.")
-                b = False
-                break
-        
-        if b:
+        if all(el in alfabeto for el in cadena):
             return cadena
+        print(f"Error: One or more elements are not in the alphabet {alfabeto}. Try again.")
 
 def opciones():
     print("\n=== Select an option ===")
